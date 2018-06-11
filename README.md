@@ -1,65 +1,27 @@
-### Installation
+# Mobile Web Specialist Certification Course
+---
+#### _Three Stage Course Material Project - Restaurant Reviews_
 
-`npm i` or `yarn install` in the root of the project.
+## Project Overview: Stage 1
 
-### How to run the app
+For the **Restaurant Reviews** projects, you will incrementally convert a static webpage to a mobile-ready web application. In **Stage One**, you will take a static design that lacks accessibility and convert the design to be responsive on different sized displays and accessible for screen reader use. You will also add a service worker to begin the process of creating a seamless offline experience for your users.
 
-In the dist folder, start up an HTTP server of your preference. For example:
-`python -m http.server`, if python 3 is installed on your machine. 
+### Specification
 
-### Where is the app running
+You have been provided the code for a restaurant reviews website. The code has a lot of issues. It’s barely usable on a desktop browser, much less a mobile device. It also doesn’t include any standard accessibility features, and it doesn’t work offline at all. Your job is to update the code to resolve these issues while still maintaining the included functionality. 
 
-The local server pipes the site to http://localhost:8000. 
+### What do I do from here?
 
-### Backend server
+1. In this folder, start up a simple HTTP server to serve up the site files on your local computer. Python has some simple tools to do this, and you don't even need to know Python. For most people, it's already installed on your computer. 
 
-The backend server needs to be run in a separate app. Git-clone the app from:
-https://github.com/akolybelnikov/mws-restaurant-stage-3 
+In a terminal, check the version of Python you have: `python -V`. If you have Python 2.x, spin up the server with `python -m SimpleHTTPServer 8000` (or some other port, if port 8000 is already in use.) For Python 3.x, you can use `python3 -m http.server 8000`. If you don't have Python installed, navigate to Python's [website](https://www.python.org/) to download and install the software.
 
-Next, follow the steps described in the readme.md of the app.
+2. With your server running, visit the site: `http://localhost:8000`, and look around for a bit to see what the current experience looks like.
+3. Explore the provided code, and make start making a plan to implement the required features in three areas: responsive design, accessibility and offline use.
+4. Write code to implement the updates to get this site on its way to being a mobile-ready website.
 
-Alternatively, you can consume the API from the deployed backend at heroku like so:
+### Note about ES6
 
-For restaurants: https://reviews-staging.herokuapp.com/restaurants
-
-For reviews: https://reviews-staging.herokuapp.com/reviews
-
-In this case you don't have to clone and install the sails app, just uncomment lines 65 and 74 and comment out lines 64 and 73 in the DBHelper.js.
-
-The backend at Heroku follows the same API conventions as the sails app, so have a look at the readme.md anyways.
-
-### How to compile static assets
-
-After you have installed the node_modules, in the root of the application run `gulp critical`. Note: should your terminal not recognize the `gulp` command, you would need to install Gulp globally as well: `npm install -g gulp`.
-
-After the assets have been compiled in the /dist folder, the following modifications to the static assets have to be done:
-
-- in the dist forlder, rename `index-critical.html` to `index.html` and `restaurant-critical.html` to `restaurant.html`; original html files in the dist folder need to be removed.
-
-- in `index.html` and `restaurant.html` the link to the script `idb.js` has to be adjusted to point to the minified file in the /lib:     `"lib/idb.js"`;
-
-- finally, the `self.importScripts("node_modules/idb/lib/idb.js")` in the minified sw.js file has to be adjusted to point to the minified idb scribt as well: `self.importScripts("lib/idb.js")`
+Most of the code in this project has been written to the ES6 JavaScript specification for compatibility with modern web browsers and future proofing JavaScript code. As much as possible, try to maintain use of ES6 in any additional JavaScript you write. 
 
 
-### Contributions
-
-Are very welcome! For documentation improvements and suggestions, as well as new features:
-
-Fork it!
-Create your feature branch: git checkout -b my-new-feature
-Commit your changes: git commit -am 'Add some feature'
-Push to the branch: git push origin my-new-feature
-Submit a pull request :D 
-
-
-### License
-
-The MIT License (MIT)
-
-Copyright (c) 2018 Andrey Kolybelnikov
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
