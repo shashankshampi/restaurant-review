@@ -1,0 +1,16 @@
+{
+  "name": "mws-restaurant-stage",
+  "version": "1.0.0",
+  "description": "restaurant Review App",
+  "main": "",
+  "scripts": {
+    "start": "python3 -m http.server 8000"
+  },
+  "author": "",
+  "license": "",
+  "private": true,
+  "devDependencies": {},
+  "dependencies": {
+    "idb": "^2.1.0"
+  }
+}
