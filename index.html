@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <title>Restaurant Info</title>
+  <meta content="The best place to get your Restaurant information" name="description"><!-- Faicon -->
+  <link href="/img/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+  <link href="/img/favicon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+  <link href="/img/favicon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+  <link href="/site.webmanifest" rel="manifest">
+  <meta content="#da532c" name="msapplication-TileColor">
+  <meta content="#252831" name="theme-color"><!-- Normalize.css for better cross-browser consistency -->
+  <link rel="stylesheet"><!-- Main CSS file -->
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <link href="css/queries.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+</head>
+<body>
+<header>
+  <nav>
+    <h1><a href="/" tabindex="-1">Restaurant Reviews</a></h1>
+  </nav>
+</header>
+<main id="maincontent">
+  <section aria-hidden="true" aria-label="Search results map" id="map-container" tabindex="-1">
+    <div aria-hidden="true" id="map" role="application" tabindex="-1"></div>
+  </section>
+  <section id="filter">
+    <div class="filter-options">
+      <h2>Filter Results</h2>
+      <div class="form-group">
+        <label for="neighborhoods-select">Select Neighborhoods</label> <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()" tabindex="1">
+        <option value="all">
+          All Neighborhoods
+        </option>
+      </select>
+      </div>
+      <div class="form-group">
+        <label for="cuisines-select">Select Cuisines</label> <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()" tabindex="2">
+        <option value="all">
+          All Cuisines
+        </option>
+      </select>
+      </div>
+    </div>
+  </section>
+  <section aria-label="Restaurant list" class="restaurant-list">
+    <div class="restaurant">
+      <ul id="restaurants-list"></ul>
+    </div>
+  </section>
+</main><!-- Beginning footer -->
+<footer id="footer">
+  Copyright (c) 2018 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
+</footer><!-- End footer -->
+<!-- Beginning scripts -->
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js">
+</script> <!-- Database helpers -->
+
+<script charset="utf-8" src="js/dbhelper.js" type="application/javascript">
+</script> <!-- Main javascript file -->
+
+<script charset="utf-8" src="js/main.js" type="application/javascript">
+</script> <!-- Google Maps -->
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo6YaSAH8Pc3D3Lv5Px-qpvZBHu2Q1Svo&libraries=places&callback=initMap">
+</script> <!-- End scripts -->
+<script>
+    $(document).ready(function(){
+        setTimeout(function(){
+                $("#map a").attr("tabindex","-1");
+                $("#map div").attr("tabindex","-1");
+            },
+            2000);
+    });
+</script>
+</body>
+</html>

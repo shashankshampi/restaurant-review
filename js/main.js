@@ -1,8 +1,8 @@
 let restaurants,
   neighborhoods,
-  cuisines
-var map
-var markers = []
+  cuisines;
+var map;
+var markers = [];
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
@@ -81,6 +81,7 @@ window.initMap = () => {
     scrollwheel: false
   });
   updateRestaurants();
+
 }
 
 /**
@@ -141,7 +142,10 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  image.setAttribute('alt', `An image of ${restaurant.name}`);
+  image.srcset = DBHelper.imageUrlForRestaurant(restaurant) + " " + "1280w" + ", " + DBHelper.imageUrlForRestaurant_1x(restaurant) + " " + "640w"; // TODO: add srcset
+  image.sizes = '(max-width: 960px) 50vw, 100vw'; // TODO: add sizes
+  image.alt = "The restaurant " + restaurant.name; // TODO: add name for image alt
+
   li.append(image);
 
   const name = document.createElement('h2');
@@ -157,6 +161,7 @@ createRestaurantHTML = (restaurant) => {
   li.append(address);
 
   const more = document.createElement('a');
+  more.setAttribute("aria-label", "View Details"); // TODO: add aria label
   more.innerHTML = 'View Details';
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)

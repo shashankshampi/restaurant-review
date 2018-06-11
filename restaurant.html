@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <title>Restaurant Info</title>
+  <meta content="The best place to get your Restaurant information" name="description"><!-- Faicon -->
+  <link href="/img/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+  <link href="/img/favicon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+  <link href="/img/favicon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+  <link href="/site.webmanifest" rel="manifest">
+  <meta content="#da532c" name="msapplication-TileColor">
+  <meta content="#252831" name="theme-color"><!-- Normalize.css for better cross-browser consistency -->
+  <link rel="stylesheet"><!-- Main CSS file -->
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <link href="css/queries.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+</head>
+<body class="inside">
+<!-- Beginning header -->
+<header>
+  <!-- Beginning nav -->
+  <nav>
+    <h1><a href="/">Restaurant Reviews</a></h1>
+  </nav><!-- Beginning breadcrumb -->
+  <ul aria-label="Breadcrumb" id="breadcrumb">
+    <li>
+      <a aria-label="Home" href="/">Home</a>
+    </li>
+  </ul><!-- End breadcrumb -->
+  <!-- End nav -->
+</header><!-- End header -->
+<!-- Beginning main -->
+<main class="top" id="maincontent">
+  <!-- Beginning restaurant -->
+  <section id="restaurant-container">
+    <h2 id="restaurant-name" tabindex="0"></h2>
+    <img id="restaurant-img">
+    <p id="restaurant-cuisine" tabindex="0"></p>
+    <p id="restaurant-address" tabindex="0"></p>
+    <table id="restaurant-hours" tabindex="0"></table>
+  </section><!-- end restaurant -->
+  <!-- Beginning reviews -->
+  <section id="reviews-container">
+    <ul id="reviews-list"></ul>
+  </section><!-- Beginning map -->
+  <section id="map-container" tabindex="-1">
+    <div aria-hidden="true" id="map" role="application" tabindex="-1"></div>
+  </section><!-- End map -->
+  <!-- End reviews -->
+</main><!-- End main -->
+<!-- Beginning footer -->
+<footer id="footer">
+  Copyright (c) 2018 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
+</footer><!-- End footer -->
+<!-- Beginning scripts -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js">
+</script> <!-- Database helpers -->
+
+<script src="js/dbhelper.js" type="text/javascript">
+</script> <!-- Main javascript file -->
+
+<script src="js/restaurant_info.js" type="text/javascript">
+</script> <!-- Google Maps -->
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo6YaSAH8Pc3D3Lv5Px-qpvZBHu2Q1Svo&libraries=places&callback=initMap">
+</script> <!-- End scripts -->
+
+<script>
+    $(document).ready(function(){
+        setTimeout(function(){
+                $("#map a").attr("tabindex","-1");
+                $("#map div").attr("tabindex","-1");
+            },
+            2000);
+    });
+</script>
+</body>
+</html>
